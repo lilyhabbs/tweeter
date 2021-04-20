@@ -1,0 +1,21 @@
+button {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 4px;
+}
+
+#tweet-text {
+  width: 100%;
+  background-color: #f4f1ec;
+  border-style: none;
+  border-bottom: 4px solid black;
+  outline: none;
+  resize: none;
+}
+
+.form-footer {
+  font-family: 'Bungee', cursive;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
