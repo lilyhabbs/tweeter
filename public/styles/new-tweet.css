@@ -1,25 +1,24 @@
 button {
   background-color: #4056A1;
   color: #FFFFFF;
-  padding: 4px;
-}
-
-#tweet-text {
-  width: 100%;
-  background-color: #f4f1ec;
-  border-style: none;
-  border-bottom: 4px solid black;
-  outline: none;
-  resize: none;
 }
 
 .form-footer {
+  padding: .75em 0;
+  border-top: thick solid black;
   font-family: 'Bungee', cursive;
-  padding-top: 10px;
   display: flex;
   justify-content: space-between;
 }
 
 .exceed-limit {
   color: #A14056;
+}
+
+#tweet-text {
+  width: 100%;
+  background-color: #f4f1ec;
+  border-style: none;
+  outline: none;
+  resize: none;
 }

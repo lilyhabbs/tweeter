@@ -2,6 +2,15 @@
   width: 100%;
 }
 
+.icons {
+  margin: .5em;
+  color: #4056A1;
+}
+
+.icons:hover {
+  color: #4087A1;
+}
+
 article.tweet {
   padding: .5em;
   border: thick solid black;
@@ -26,13 +35,4 @@ article.tweet footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.icons {
-  margin: .5em;
-  color: #4056A1;
-}
-
-.icons:hover {
-  color: #4087A1;
 }

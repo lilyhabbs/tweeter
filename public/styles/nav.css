@@ -1,18 +1,20 @@
-nav {
+body > nav {
   height: 120px;
   width: 100vw;
+  padding: 0 1.5em;
   background-color: #4056A1;
   color: #FFFFFF;
-  padding: 0 1.5em;
   position: sticky;
+  top: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
 }
 
 #logo {
   font-family: 'Bungee', cursive;
+  font-size: xx-large;
 }
 
 #write-new {
