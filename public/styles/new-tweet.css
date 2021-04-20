@@ -19,3 +19,7 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+.exceed-limit {
+  color: #A14056;
+}
