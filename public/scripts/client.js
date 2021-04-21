@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Prevent cross-site scripting
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -57,16 +57,16 @@ $(document).ready(function() {
   
   $('form').on('submit', function(event) {
     event.preventDefault();
-    let newTweetText = $('#tweet-text').val();
+    $('.alert').hide().empty();
     
-    if (!newTweetText) {
-      alert('You can\'t submit a blank tweet!');
-      return;
-    }
+    let newTweetText = $('#tweet-text').val();
 
+    if (!newTweetText) {
+      return $('.alert').show().append('<i class="fa fa-times-circle"></i> OOPS! It looks like you forgot to type something.');
+    }
+    
     if (newTweetText.length > 140) {
-      alert('You have exceeded the maximum number of characters!');
-      return;
+      return $('.alert').show().append('<i class="fa fa-times-circle"></i> There isn\'t enough room to post what you want to say!');
     }
 
     $.ajax({
