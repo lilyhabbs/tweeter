@@ -1,4 +1,11 @@
 $(document).ready(function() {
+  // Prevent cross-site scripting
+  const escape = function (str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+  
   // Convert created date from epoch to time ago format
   const convertDate = function(epochDate) {
     return timeago.format(epochDate);
@@ -13,7 +20,7 @@ $(document).ready(function() {
           <span>${tweet.user.handle}</span>
         </header>
         
-        <div>${tweet.content.text}</div>
+        <div>${escape(tweet.content.text)}</div>
         
         <footer>
           <span>${convertDate(tweet.created_at)}</span>
@@ -50,14 +57,14 @@ $(document).ready(function() {
   
   $('form').on('submit', function(event) {
     event.preventDefault();
-    let newTweet = $('#tweet-text').val();
+    let newTweetText = $('#tweet-text').val();
     
-    if (!newTweet) {
+    if (!newTweetText) {
       alert('You can\'t submit a blank tweet!');
       return;
     }
 
-    if (newTweet.length > 140) {
+    if (newTweetText.length > 140) {
       alert('You have exceeded the maximum number of characters!');
       return;
     }
@@ -69,8 +76,9 @@ $(document).ready(function() {
     }).then(() => {
       $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
         .then(function(tweets) {
-          const latestTweet = tweets[tweets.length - 1];
-          $('#tweets-container').prepend(createTweetElement(latestTweet));
+          const newTweetObj = tweets[tweets.length - 1];
+          $('#tweets-container').prepend(createTweetElement(newTweetObj));
+          $('#tweet-text').val('');
         });
     }).catch((err) => {
       console.log('Error: ', err);
