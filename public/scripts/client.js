@@ -1,36 +1,11 @@
 $(document).ready(function() {
-  // Temporary data to be deleted
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1619027048782
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
-
   // Convert created date from epoch to time ago format
   const convertDate = function(epochDate) {
     return timeago.format(epochDate);
   };
 
   const createTweetElement = function(tweet) {
-    const $tweet = $(`
+    const displayTweet = `
       <article class="tweet">
         <header>
           <span><img src="${tweet.user.avatars}">
@@ -49,30 +24,39 @@ $(document).ready(function() {
           </span>
         </footer>
       </article>
-    `);
+    `;
     
-    return $tweet;
+    return displayTweet;
   };
 
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     }
   };
-  
-  renderTweets(data);
 
+  const loadTweets = function() {
+    $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
+      .then(function(tweets) {
+        renderTweets(tweets);
+      });
+  };
+
+  // Initially display existing tweets on page load
+  loadTweets();
+  
   $('form').on('submit', function(event) {
     event.preventDefault();
     const tweet = $(this).serialize();
 
     $.ajax({
-      url: '/tweets/',
+      url: '/tweets',
       method: 'POST',
       data: tweet,
     }).then(() => {
-      console.log('Success!');
+      loadTweets();
+      $('#tweet-text').val('');
     }).catch((err) => {
       console.log('Error: ', err);
     });
