@@ -10,7 +10,7 @@ $(document).ready(function() {
       "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-      "created_at": 1461116232227
+      "created_at": 1619027048782
     },
     {
       "user": {
@@ -24,30 +24,30 @@ $(document).ready(function() {
     }
   ];
 
-  // Convert created date in epoch format to time ago format
+  // Convert created date from epoch to time ago format
   const convertDate = function(epochDate) {
     return timeago.format(epochDate);
   };
-  
+
   const createTweetElement = function(tweet) {
     const $tweet = $(`
       <article class="tweet">
-      <header>
-      <span><img src="${tweet.user.avatars}">
-      ${tweet.user.name}</span>
-      <span>${tweet.user.handle}</span>
-      </header>
-      
-      <div>${tweet.content.text}</div>
-      
-      <footer>
-      <span>${convertDate(tweet.created_at)}</span>
-      <span>
-      <i class="icon fas fa-flag"></i>
-      <i class="icon fas fa-retweet"></i>
-      <i class="icon fas fa-heart"></i>
-      </span>
-      </footer>
+        <header>
+          <span><img src="${tweet.user.avatars}">
+          ${tweet.user.name}</span>
+          <span>${tweet.user.handle}</span>
+        </header>
+        
+        <div>${tweet.content.text}</div>
+        
+        <footer>
+          <span>${convertDate(tweet.created_at)}</span>
+          <span>
+            <i class="icon fas fa-flag"></i>
+            <i class="icon fas fa-retweet"></i>
+            <i class="icon fas fa-heart"></i>
+          </span>
+        </footer>
       </article>
     `);
     
@@ -62,4 +62,19 @@ $(document).ready(function() {
   };
   
   renderTweets(data);
+
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    const tweet = $(this).serialize();
+
+    $.ajax({
+      url: '/tweets/',
+      method: 'POST',
+      data: tweet,
+    }).then(() => {
+      console.log('Success!');
+    }).catch((err) => {
+      console.log('Error: ', err);
+    });
+  });
 });
