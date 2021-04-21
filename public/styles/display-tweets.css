@@ -1,20 +1,20 @@
-.display-tweets {
+#tweets-container {
   width: 100%;
 }
 
-.icons {
-  margin: .5em;
+.icon {
+  margin: .15em;
   color: #4056A1;
 }
 
-.icons:hover {
+.icon:hover {
   color: #4087A1;
 }
 
 article.tweet {
   padding: .5em;
   border: thick solid black;
-  margin-top: 1.5em;
+  margin: 1.5em 0;
 }
 
 article.tweet:hover {
@@ -30,6 +30,7 @@ article.tweet header {
 
 article.tweet footer {
   padding: .5em 0;
+  margin-top: .75em;
   border-top: thick solid black;
   font-size: smaller;
   display: flex;
