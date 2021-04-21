@@ -15,6 +15,16 @@ button {
   color: #A14056;
 }
 
+.alert {
+  display: none;
+  background-color: #e5bec7;
+  color: #A14056;
+  font-weight: bold;
+  font-size: smaller;
+  padding: .35em;
+  margin-bottom: 1em;
+}
+
 #tweet-text {
   width: 100%;
   background-color: #f4f1ec;
