@@ -40,6 +40,8 @@ $(document).ready(function() {
     $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
       .then(function(tweets) {
         renderTweets(tweets);
+      }).catch((err) => {
+        console.log('Error: ', err);
       });
   };
 
@@ -51,23 +53,25 @@ $(document).ready(function() {
     let newTweet = $('#tweet-text').val();
     
     if (!newTweet) {
-      return alert('You can\'t submit a blank tweet!');
+      alert('You can\'t submit a blank tweet!');
+      return;
     }
 
     if (newTweet.length > 140) {
-      return alert('You have exceeded the maximum number of characters!');
+      alert('You have exceeded the maximum number of characters!');
+      return;
     }
-    
-    newTweet = $(this).serialize();
 
     $.ajax({
       url: '/tweets',
       method: 'POST',
-      data: newTweet,
+      data: $(this).serialize(),
     }).then(() => {
-      loadTweets();
-      $('#tweet-text').val('');
-
+      $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
+        .then(function(tweets) {
+          const latestTweet = tweets[tweets.length - 1];
+          $('#tweets-container').prepend(createTweetElement(latestTweet));
+        });
     }).catch((err) => {
       console.log('Error: ', err);
     });
