@@ -48,15 +48,26 @@ $(document).ready(function() {
   
   $('form').on('submit', function(event) {
     event.preventDefault();
-    const tweet = $(this).serialize();
+    let newTweet = $('#tweet-text').val();
+    
+    if (!newTweet) {
+      return alert('You can\'t submit a blank tweet!');
+    }
+
+    if (newTweet.length > 140) {
+      return alert('You have exceeded the maximum number of characters!');
+    }
+    
+    newTweet = $(this).serialize();
 
     $.ajax({
       url: '/tweets',
       method: 'POST',
-      data: tweet,
+      data: newTweet,
     }).then(() => {
       loadTweets();
       $('#tweet-text').val('');
+
     }).catch((err) => {
       console.log('Error: ', err);
     });
