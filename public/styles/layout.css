@@ -12,7 +12,6 @@ html {
 }
 
 /* Global layout stuff */
-
 body {
   background-color: #f4f1ec;
   color: #545149;
@@ -26,11 +25,10 @@ main {
   padding: 0 2em;
 }
 
-/* Tablet layout */
-
-@media only screen and (min-width: 768px) {
+/* Desktop layout */
+@media only screen and (min-width: 1024px) {
   main {
-    width: 66.7%;
+    width: 60%;
     float: right;
   }
 }

@@ -1,9 +1,12 @@
-/* Add new tweet footer */
+.new-tweet {
+  margin-top: 2em;
+}
 
+/* Add new tweet footer */
 button {
-  padding: .25em;
+  padding: 0.25em;
   background-color: #a36d90;
-  color: #ffffff;
+  color: #fff;
 }
 
 button:hover {
@@ -24,11 +27,11 @@ button:hover {
 }
 
 /* Form validation alerts */
-
 .alert {
   display: none;
   margin-bottom: 1em;
-  padding: .35em;
+  border-radius: 25px;
+  padding: 0.35em;
   background-color: #e5bec7;
   color: #cf4d6f;
   font-weight: bold;
@@ -36,7 +39,6 @@ button:hover {
 }
 
 /* New tweet textarea */
-
 #tweet-text {
   width: 100%;
   border-style: none;

@@ -1,10 +1,9 @@
 /* Display tweet box */
-
 article.tweet {
-  margin: 1.5em 0;
+  margin: 2em 0;
   border: thick solid #76818e;
   border-radius: 25px;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 article.tweet:hover {
@@ -12,29 +11,31 @@ article.tweet:hover {
 }
 
 /* Display tweet header */
-
 article.tweet header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: .5em;
-  padding: .5em 0;
+  margin-bottom: 0.5em;
+  padding: 0.5em 0;
+}
+
+#user-handle {
+  color: #c5afa4;
 }
 
 /* Display tweet footer */
-
 article.tweet footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 1em;
   border-top: solid #76818e;
-  padding: .5em 0;
+  padding: 0.5em 0;
   font-size: smaller;
 }
 
 .icon {
-  margin: .15em;
+  margin: 0.15em;
   color: #a36d90;
 }
 
