@@ -22,3 +22,11 @@ body > nav {
   flex-direction: column;
   align-items: center;
 }
+
+#write-new-button {
+  margin-top: .5em;
+}
+
+#write-new-button:hover {
+  color: #4087a1;
+}
