@@ -40,10 +40,10 @@
 <body>
   <!-- Top nav bar (fixed) -->
   <nav>
-    <span id="logo">tweeter</span>
+    <span id="logo"><i class="fas fa-dove"></i> tweeter</span>
     <div id="write-new">
       <span><strong>Write</strong> a new tweet</span>
-      <span><i class="fas fa-angle-double-down"></i></span>
+      <span id="write-new-button"><i class="fas fa-angle-double-down"></i></span>
     </div>
   </nav>
 
@@ -55,7 +55,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
+      <h2>Write a new tweet</h2>
       <div class="alert"></div>
       <form method="POST" action="/tweets/">
         <label for="tweet-text"></label>
