@@ -1,0 +1,27 @@
+@import 'variables';
+
+body > header {
+  height: 400px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1em;
+  padding: 0 .25em;
+  background-color: $accent-color;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  color: $light-text-color;
+}
+
+/* Desktop layout */
+
+@media only screen and (min-width: 1024px) {
+  body > header {
+    width: 35%;
+    margin: 2em 0 0 2em;
+    border-radius: 25px;
+    box-shadow: 7px 7px 5px $light-color;
+    float: left;
+  }
+}

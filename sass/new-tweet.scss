@@ -1,0 +1,53 @@
+@import 'variables';
+
+.new-tweet {
+  margin-top: 2em;
+}
+
+/* Add new tweet footer */
+
+button {
+  padding: .25em;
+  background-color: $accent-color;
+  color: $light-text-color;
+}
+
+button:hover {
+  background-color: $light-color;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: thick solid $dark-color;
+  padding: 0.75em 0;
+  color: $dark-color;
+  font-family: "Bungee", cursive;
+}
+
+.exceed-limit {
+  color: $alert-text-color;
+}
+
+/* Form validation alerts */
+
+.alert {
+  display: none;
+  margin-bottom: 1em;
+  border-radius: 25px;
+  padding: .35em;
+  background-color: $alert-background-color;
+  color: $alert-text-color;
+  font-weight: bold;
+  font-size: smaller;
+}
+
+/* New tweet textarea */
+
+#tweet-text {
+  width: 100%;
+  border-style: none;
+  outline: none;
+  resize: none;
+  background-color: $background;
+}

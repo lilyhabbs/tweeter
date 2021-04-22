@@ -1,0 +1,49 @@
+@import 'variables';
+
+/* Display tweet box */
+
+article.tweet {
+  margin: 2em 0;
+  border: thick solid $dark-color;
+  border-radius: 25px;
+  padding: .5em;
+}
+
+article.tweet:hover {
+  box-shadow: 7px 7px 5px $light-color;
+}
+
+/* Display tweet header */
+
+article.tweet header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5em;
+  padding: .5em 0;
+}
+
+#user-handle {
+  color: $light-color;
+}
+
+/* Display tweet footer */
+
+article.tweet footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+  border-top: solid $dark-color;
+  padding: .5em 0;
+  font-size: smaller;
+}
+
+.icon {
+  margin: .15em;
+  color: $accent-color;
+}
+
+.icon:hover {
+  color: $light-color;
+}

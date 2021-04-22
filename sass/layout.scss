@@ -1,0 +1,38 @@
+@import 'variables';
+
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Global layout stuff */
+
+body {
+  background-color: $background;
+  color: $main-text-color;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+/* Desktop layout */
+
+@media only screen and (min-width: 1024px) {
+  main {
+    width: 60%;
+    float: right;
+  }
+}
