@@ -3,6 +3,8 @@
 
 <head>
   <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <title>Tweeter - Home Page</title>
 
   <!-- External CSS -->
@@ -35,6 +37,7 @@
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
 </head>
 
 <body>
@@ -52,8 +55,8 @@
     <h2>Lily Habberfield</h2>
   </header>
 
-  <!-- Page-specific (main) content here -->
   <main class="container">
+    <!-- New tweet form -->
     <section class="new-tweet">
       <h2>Write a new tweet</h2>
       <div class="alert"></div>
@@ -67,6 +70,7 @@
       </form>
     </section>
 
+    <!-- Display all tweets -->
     <section id="tweets-container"></section>
   </main>
 </body>
