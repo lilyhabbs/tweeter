@@ -1,8 +1,8 @@
-body > nav {
+nav {
   height: 120px;
   width: 100vw;
   padding: 0 1.5em;
-  background-color: #4056A1;
+  background-color: #76818e;
   color: #FFFFFF;
   position: sticky;
   top: 0;
@@ -13,9 +13,11 @@ body > nav {
 }
 
 #logo {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   font-size: xx-large;
 }
+
+/* Compose new tweet */
 
 #write-new {
   display: flex;
@@ -24,9 +26,9 @@ body > nav {
 }
 
 #write-new-button {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 #write-new-button:hover {
-  color: #4087a1;
+  color: #c5afa4;
 }

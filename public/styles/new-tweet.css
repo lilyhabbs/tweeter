@@ -1,38 +1,46 @@
+/* Add new tweet footer */
+
 button {
-  background-color: #4056a1;
-  color: #FFFFFF;
+  padding: .25em;
+  background-color: #a36d90;
+  color: #ffffff;
 }
 
 button:hover {
-  background-color: #4087a1;
+  background-color: #c5afa4;
 }
 
 .form-footer {
-  padding: 0.75em 0;
-  border-top: thick solid black;
-  font-family: "Bungee", cursive;
   display: flex;
   justify-content: space-between;
+  border-top: thick solid #76818e;
+  padding: 0.75em 0;
+  color: #76818e;
+  font-family: "Bungee", cursive;
 }
 
 .exceed-limit {
-  color: #A14056;
+  color: #cf4d6f;
 }
+
+/* Form validation alerts */
 
 .alert {
   display: none;
+  margin-bottom: 1em;
+  padding: .35em;
   background-color: #e5bec7;
-  color: #A14056;
+  color: #cf4d6f;
   font-weight: bold;
   font-size: smaller;
-  padding: .35em;
-  margin-bottom: 1em;
 }
+
+/* New tweet textarea */
 
 #tweet-text {
   width: 100%;
-  background-color: #f4f1ec;
   border-style: none;
   outline: none;
   resize: none;
+  background-color: #f4f1ec;
 }

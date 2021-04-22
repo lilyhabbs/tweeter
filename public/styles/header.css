@@ -1,7 +1,7 @@
 body > header {
   height: 400px;
   width: 100vw;
-  background-color: #4087A1;
+  background-color: #a36d90;
   background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
   color: #FFFFFF;
   display: flex;
@@ -10,13 +10,14 @@ body > header {
   justify-content: flex-end;
 }
 
-/*
-* Tablet layout
-*/
+/* Tablet layout */
 
 @media only screen and (min-width: 768px) {
   body > header {
-    width: 33.3%;
+    width: 30%;
+    margin: 1em 0 0 1em;
+    border-radius: 25px;
+    box-shadow: 7px 7px 5px #c5afa4;
     float: left;
   }
 }
