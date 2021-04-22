@@ -11,13 +11,14 @@ $(document).ready(function() {
     return timeago.format(epochDate);
   };
 
+  // Create HTML to display each tweet
   const createTweetElement = function(tweet) {
     const displayTweet = `
       <article class="tweet">
         <header>
           <span><img src="${escape(tweet.user.avatars)}">
           ${escape(tweet.user.name)}</span>
-          <span>${escape(tweet.user.handle)}</span>
+          <span id="user-handle">${escape(tweet.user.handle)}</span>
         </header>
         
         <div>${escape(tweet.content.text)}</div>
@@ -36,6 +37,7 @@ $(document).ready(function() {
     return displayTweet;
   };
 
+  // Render all tweets from current database
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
@@ -43,6 +45,7 @@ $(document).ready(function() {
     }
   };
 
+  // Display existing tweets on page load
   const loadExistingTweets = function() {
     $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
       .then((tweets) => {
@@ -54,6 +57,7 @@ $(document).ready(function() {
 
   loadExistingTweets();
 
+  // Display newest tweet
   const loadNewTweet = function() {
     $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
       .then((tweets) => {
@@ -62,23 +66,33 @@ $(document).ready(function() {
       }).catch((err) => {
         console.log('Error: ', err);
       });
-  }; 
+  };
 
+  // Submit form using the enter key
+  $('form').keypress(function(event) {
+    if (event.which === 13) { // enter key = 13
+      event.preventDefault();
+      $('form').submit();
+    }
+  });
   
+  // Submit a new tweet
   $('form').on('submit', function(event) {
     event.preventDefault();
-    $('.alert').hide()
+    $('.alert').hide();
     
     let newTweetText = $('#tweet-text').val();
 
+    // Form validation: empty tweet
     if (!newTweetText.trim()) {
       return $('.alert').show().html('<i class="fa fa-times-circle"></i> Oops! It looks like you forgot to type something...');
     }
     
+    // Form validation: tweet exceeds character limit
     if (newTweetText.length > 140) {
       return $('.alert').show().html('<i class="fa fa-times-circle"></i> Unfortunately you have way too many thoughts for one post!');
     }
-
+  
     $.ajax({
       url: '/tweets',
       method: 'POST',
@@ -92,6 +106,7 @@ $(document).ready(function() {
     });
   });
 
+  // Arrow button in nav (to hide/show new tweet form)
   $('#write-new-button').click(function() {
     $('.new-tweet').slideToggle('fast');
     $('#tweet-text').focus();
