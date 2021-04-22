@@ -9,3 +9,14 @@ body > header {
   align-items: center;
   justify-content: flex-end;
 }
+
+/*
+* Tablet layout
+*/
+
+@media only screen and (min-width: 768px) {
+  body > header {
+    width: 33.3%;
+    float: left;
+  }
+}

@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -13,20 +14,36 @@ html {
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.container {
-  width: 90%;
-  margin: 0 auto;
-  background-color: #f4f1ec;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+* Additional CSS can be defined below or in other CSS files, as per instructions
+*/
+main {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 2em;
+  background-color: #f4f1ec;
+}
+
+/* div.container {
+  display: flex;
+  flex-direction: column;
+  padding: 3em;
+} */
+
+/*
+* Tablet layout
+*/
+
+@media only screen and (min-width: 768px) {
+  main {
+    width: 66.7%;
+    float: right;
+  }
+}
