@@ -43,17 +43,27 @@ $(document).ready(function() {
     }
   };
 
-  const loadTweets = function() {
+  const loadExistingTweets = function() {
     $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
-      .then(function(tweets) {
+      .then((tweets) => {
         renderTweets(tweets);
       }).catch((err) => {
         console.log('Error: ', err);
       });
   };
 
-  // Initially display existing tweets on page load
-  loadTweets();
+  loadExistingTweets();
+
+  const loadNewTweet = function() {
+    $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
+      .then((tweets) => {
+        const newTweet = createTweetElement(tweets[tweets.length - 1]);
+        $('#tweets-container').prepend(newTweet);
+      }).catch((err) => {
+        console.log('Error: ', err);
+      });
+  }; 
+
   
   $('form').on('submit', function(event) {
     event.preventDefault();
@@ -61,12 +71,12 @@ $(document).ready(function() {
     
     let newTweetText = $('#tweet-text').val();
 
-    if (!newTweetText) {
-      return $('.alert').show().html('<i class="fa fa-times-circle"></i> OOPS! It looks like you forgot to type something.');
+    if (!newTweetText.trim()) {
+      return $('.alert').show().html('<i class="fa fa-times-circle"></i> Oops! It looks like you forgot to type something...');
     }
     
     if (newTweetText.length > 140) {
-      return $('.alert').show().html('<i class="fa fa-times-circle"></i> There isn\'t enough room to post what you want to say!');
+      return $('.alert').show().html('<i class="fa fa-times-circle"></i> Unfortunately you have way too many thoughts for one post!');
     }
 
     $.ajax({
@@ -74,15 +84,16 @@ $(document).ready(function() {
       method: 'POST',
       data: $(this).serialize(),
     }).then(() => {
-      $.ajax('/tweets', { method: 'GET', dataType: 'JSON' })
-        .then(function(tweets) {
-          const newTweetObj = tweets[tweets.length - 1];
-          $('#tweets-container').prepend(createTweetElement(newTweetObj));
-          $('#tweet-text').val('').focus();
-          $('.counter').val('140');
-        });
+      loadNewTweet();
+      $('#tweet-text').val('').focus();
+      $('.counter').val('140');
     }).catch((err) => {
       console.log('Error: ', err);
     });
+  });
+
+  $('#write-new-button').click(function() {
+    $('.new-tweet').slideToggle('fast');
+    $('#tweet-text').focus();
   });
 });
