@@ -15,9 +15,9 @@ $(document).ready(function() {
     const displayTweet = `
       <article class="tweet">
         <header>
-          <span><img src="${tweet.user.avatars}">
-          ${tweet.user.name}</span>
-          <span>${tweet.user.handle}</span>
+          <span><img src="${escape(tweet.user.avatars)}">
+          ${escape(tweet.user.name)}</span>
+          <span>${escape(tweet.user.handle)}</span>
         </header>
         
         <div>${escape(tweet.content.text)}</div>
@@ -57,16 +57,16 @@ $(document).ready(function() {
   
   $('form').on('submit', function(event) {
     event.preventDefault();
-    $('.alert').hide().empty();
+    $('.alert').hide()
     
     let newTweetText = $('#tweet-text').val();
 
     if (!newTweetText) {
-      return $('.alert').show().append('<i class="fa fa-times-circle"></i> OOPS! It looks like you forgot to type something.');
+      return $('.alert').show().html('<i class="fa fa-times-circle"></i> OOPS! It looks like you forgot to type something.');
     }
     
     if (newTweetText.length > 140) {
-      return $('.alert').show().append('<i class="fa fa-times-circle"></i> There isn\'t enough room to post what you want to say!');
+      return $('.alert').show().html('<i class="fa fa-times-circle"></i> There isn\'t enough room to post what you want to say!');
     }
 
     $.ajax({
@@ -78,7 +78,8 @@ $(document).ready(function() {
         .then(function(tweets) {
           const newTweetObj = tweets[tweets.length - 1];
           $('#tweets-container').prepend(createTweetElement(newTweetObj));
-          $('#tweet-text').val('');
+          $('#tweet-text').val('').focus();
+          $('.counter').val('140');
         });
     }).catch((err) => {
       console.log('Error: ', err);
