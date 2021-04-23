@@ -16,8 +16,10 @@ $(document).ready(function() {
     const displayTweet = `
       <article class="tweet">
         <header>
-          <span><img src="${escape(tweet.user.avatars)}">
-          ${escape(tweet.user.name)}</span>
+          <span id="user-info">
+            <img src="${escape(tweet.user.avatars)}">
+            <span id="name">${escape(tweet.user.name)}</span>
+          </span>
           <span id="user-handle">${escape(tweet.user.handle)}</span>
         </header>
         
