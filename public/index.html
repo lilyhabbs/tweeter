@@ -37,11 +37,13 @@
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/composer-scroll.js"></script>
 
 </head>
 
 <body>
   <!-- Top nav bar (fixed) -->
+  <div id="top"></div>
   <nav>
     <span id="logo"><i class="fas fa-dove"></i> tweeter</span>
     <div id="write-new">
@@ -74,6 +76,8 @@
     <!-- Display all tweets -->
     <section id="tweets-container"></section>
 
+    <!-- Scroll back to top button -->
+    <div id="scroll-button"><i class="fas fa-angle-double-up"></i></div>
   </main>
 </body>
 
