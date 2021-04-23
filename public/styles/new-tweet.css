@@ -5,12 +5,13 @@
 /* Add new tweet footer */
 button {
   padding: 0.25em;
+  border-radius: 5px;
   background-color: #a36d90;
   color: #fff;
 }
-
 button:hover {
   background-color: #c5afa4;
+  cursor: pointer;
 }
 
 .form-footer {

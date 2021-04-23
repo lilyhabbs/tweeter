@@ -1,5 +1,5 @@
 nav {
-  height: 120px;
+  height: 90px;
   width: 100vw;
   padding: 0 2em;
   background-color: #76818e;
@@ -25,9 +25,9 @@ nav {
 }
 
 #write-new-button {
-  margin-top: 0.5em;
+  margin-top: 0.15em;
 }
-
 #write-new-button:hover {
   color: #c5afa4;
+  cursor: pointer;
 }
